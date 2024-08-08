@@ -3,17 +3,27 @@ import { Google } from '@mui/icons-material';
 import { Grid, TextField, Typography, Button, Link } from '@mui/material';
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
+import { useDispatch } from 'react-redux';
+import { checkingAuthentication, startGoogleSignIn } from '../../store/auth/thunks';
 
 export const LoginPage = () => {
 
+  const dispatch = useDispatch();
   const {email, password, onInputChange, formState } = useForm({
     email: 'example@example.com',
-    password: ''
+    password: '*****'
   })
 
   const onSubmit = ( event ) => {
     event.preventDefault();
     console.log(email, password);
+    dispatch( checkingAuthentication() );
+  }
+
+  const onGoogleLogin = ( event ) =>{
+
+    console.log("accediendo a google");
+    dispatch( startGoogleSignIn() );
   }
 
 
@@ -50,7 +60,7 @@ export const LoginPage = () => {
                 </Button>
               </Grid>
               <Grid item xs={ 12 } sm ={ 6 }>
-                <Button variant='contained' fullWidth>
+                <Button variant='contained' fullWidth onClick={onGoogleLogin}>
                   <Google />
                   <Typography sx={{ ml:1 }}>Google</Typography>
                 </Button>

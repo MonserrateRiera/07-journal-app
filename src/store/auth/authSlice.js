@@ -20,7 +20,7 @@ export const authSlice = createSlice({
         },
 
         chekingCredentials: (state) =>{
-
+            state.status = 'checking';
         }
      },
 });
