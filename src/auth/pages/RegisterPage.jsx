@@ -34,8 +34,11 @@ export const RegisterPage = () => {
     setFormSubmit(true);
     if(!isFormValid){
        console.log('no valid')
-      return;}
-    dispatch(startCreatingUserWithEmailAndPassword( formState ));
+      return;
+    }else{
+      
+      dispatch(startCreatingUserWithEmailAndPassword( formState ));
+    }
   }
   return (
     <AuthLayout title='Register'>
