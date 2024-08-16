@@ -38,4 +38,15 @@ export const startCreatingUserWithEmailAndPassword = ({ email, password, display
     }
 }
 
+export const startLoginWithEmailAndPassword = ({ email, password }) =>{
+   return async( dispatch ) => {
+    dispatch( chekingCredentials() );
+    const {ok, uid, displayName, photoURL, errorMessage } = await startLoginWithEmailAndPassword( { email, password } );
+    if(!ok) return dispatch(logout({ errorMessage }));
+
+    dispatch(login({ uid, displayName, email, photoURL }))
+   }
+
+
+}
 
