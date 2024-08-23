@@ -11,27 +11,29 @@ const AppRouter = () => {
 
   const status = useCheckAuth();
 
-  if(status === 'checking'){
+  if ( status === 'checking' ) {
     return <CheckingAuth />
   }
 
   return (
-      <Routes>
+    <Routes>
+
         {
           (status === 'authenticated')
-          ? <Route path='/*' element={ <JournalRoutes /> } />
-          : <Route  path='/auth/*' element={ <AuthRoutes /> }/>
+           ? <Route path="/*" element={ <JournalRoutes /> } />
+           : <Route path="/auth/*" element={ <AuthRoutes /> } />
         }
 
-        <Route  path='/*' element={ <Navigate to='/auth/login'/> }/>
-        {/* Login y registro */}
-        {/* <Route  path='/auth/*' element={ <AuthRoutes /> }/> */}
+        <Route path='/*' element={ <Navigate to='/auth/login' />  } />
+
+        {/* Login y Registro */}
+        {/* <Route path="/auth/*" element={ <AuthRoutes /> } /> */}
 
         {/* JournalApp */}
-        {/* <Route path='/*' element={ <JournalRoutes /> } /> */}
+        {/* <Route path="/*" element={ <JournalRoutes /> } /> */}
 
     </Routes>
-  );
+  )
 };
 
 export default AppRouter;
