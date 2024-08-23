@@ -29,14 +29,9 @@ export const LoginPage = () => {
 
   const onSubmit = ( event ) => {
     event.preventDefault();
-    setFormSubmit(true);
 
-    if(!isFormValid) {
-      return;
-    }else{
-      
       dispatch( startLoginWithEmailAndPassword( formState ) );
-    }
+    
 
   }
 

@@ -20,9 +20,10 @@ const formValidations = {
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
-  const {formState, displayName, email, password, onInputChange,
-    isFormValid, displayNameValid, emailValid, passwordValid
-   } = useForm(formData, formValidations)
+  const { 
+    formState, displayName, email, password, onInputChange,
+    isFormValid, displayNameValid, emailValid, passwordValid, 
+  } = useForm( formData, formValidations );
 
    const [formSubmit, setFormSubmit] = useState(false);
    const { status, errorMessage } = useSelector( state => state.auth );
