@@ -13,11 +13,10 @@ const formData = {
   password: ''
 }
 const formValidations = {
-  email: [ (value) => value.includes('@') , 'El correo debe tener una arroba.'],
-  password: [ (value) => value.length >=6  , 'El password debe tener más de 6 letras'],
-  displayName: [ (value) => value.length >=1  , 'El nombre es obligatorio'],
+  email: [ (value) => value.includes('@'), 'El correo debe de tener una @'],
+  password: [ (value) => value.length >= 6, 'El password debe de tener más de 6 letras.'],
+  displayName: [ (value) => value.length >= 1, 'El nombre es obligatorio.'],
 }
-
 
 export const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -42,7 +41,7 @@ export const RegisterPage = () => {
   }
   return (
     <AuthLayout title='Register'>
-        <form onSubmit={ onSubmit }>
+        <form onSubmit={ onSubmit } >
           <Grid container> 
             <Grid item xs={ 12 } sx={{ mt:2 }}>
               <TextField 
