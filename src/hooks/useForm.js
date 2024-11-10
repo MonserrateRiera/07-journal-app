@@ -8,6 +8,13 @@ export const useForm = ( initialForm = {}, formValidations = {}) => {
     useEffect(() => {
         createValidators();
     }, [ formState ])
+
+    /**
+     * Si es formulari canvia, torna a renderitzar es formulari senser.
+     */
+    useEffect(() =>{
+        setFormState( initialForm )
+    }, [ initialForm ])
     
     const isFormValid = useMemo( () => {
 
