@@ -8,7 +8,6 @@ export const journalSlice = createSlice({
         messageSaved: '',
         notes: [],
         active: null,
-        imageURLs: []
 
         // active: {
         //     id: 'ABC123',
@@ -52,6 +51,7 @@ export const journalSlice = createSlice({
             //hauria de posar saving true?
         },
         setPhotosToActiveNote: ( state, action ) =>{
+            
             state.active.imageUrls = [...state.active.imageUrls, ...action.payload ]
             state.isSaving = false;
         }, 
