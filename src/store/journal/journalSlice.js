@@ -7,7 +7,8 @@ export const journalSlice = createSlice({
         isSaving: false,
         messageSaved: '',
         notes: [],
-        active: null
+        active: null,
+        imageURLs: []
 
         // active: {
         //     id: 'ABC123',
@@ -62,6 +63,11 @@ export const journalSlice = createSlice({
             state.active = null
         }, 
         deleteNoteById: ( state, action ) =>{
+
+            
+            state.notes = state.notes.filter( (note) => note.id !== action.payload )
+            state.active = null;
+            console.log(state.notes)
 
         },
 
